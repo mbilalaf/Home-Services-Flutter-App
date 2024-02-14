@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/forgot_password_controller.dart';
+import 'package:home_services/controllers/forgot_password_controller/forgot_password_controller.dart';
 import 'package:home_services/utils/styles.dart';
 import 'package:home_services/validations/validator.dart';
 import 'package:home_services/widgets/button.dart';

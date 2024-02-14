@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_services/controllers/my_button_controller.dart';
 import 'package:home_services/pages/auth/signin_signup_pages/sign_in_page.dart';
+import 'package:home_services/widgets/custom_snackbar.dart';
 
 class ForgotPasswordController extends GetxController {
   TextEditingController emailController = TextEditingController();
@@ -39,40 +40,22 @@ class ForgotPasswordController extends GetxController {
       myButtonController.isLoading.value = true;
       await auth.sendPasswordResetEmail(email: email).then((value) {
         myButtonController.isLoading.value = false;
-        Get.snackbar(
-          'Success',
-          'Link has been successfully sent to your email. Check your email.',
-          snackPosition: SnackPosition.BOTTOM,
-          colorText: Colors.white,
-          padding: const EdgeInsets.all(10),
-          backgroundColor: Colors.black,
-        );
+        CustomSnackBar.show(
+            title: 'Success',
+            message:
+                'Link has been successfully sent to your email. Check your email.');
         Get.offAll(const SignInPage());
       }).onError(
         (error, stackTrace) {
-          Get.snackbar(
-            'Password Rest Error Status',
-            error.toString(),
-            snackStyle: SnackStyle.FLOATING,
-            snackPosition: SnackPosition.TOP,
-            colorText: Colors.white,
-            padding: const EdgeInsets.all(10),
-            backgroundColor: Colors.black,
-          );
+          CustomSnackBar.show(
+              title: 'Password Rest Error Status', message: error.toString());
         },
       );
     } catch (e) {
       myButtonController.isLoading.value = false;
       print("Error Message: ${e.toString()}");
-      Get.snackbar(
-        'Error Message',
-        e.toString(),
-        snackStyle: SnackStyle.FLOATING,
-        snackPosition: SnackPosition.TOP,
-        colorText: Colors.white,
-        padding: const EdgeInsets.all(10),
-        backgroundColor: Colors.black,
-      );
+
+      CustomSnackBar.show(title: 'Error Message', message: e.toString());
     } finally {
       myButtonController.isLoading.value = false;
     }

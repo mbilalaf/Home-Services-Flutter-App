@@ -1,5 +1,5 @@
 import 'package:get/get_utils/src/get_utils/get_utils.dart';
-import 'package:home_services/controllers/signup_controller.dart';
+import 'package:home_services/controllers/auth_controller/signup/signup_controller.dart';
 
 class Validator {
   SignUpController signUpController = SignUpController();

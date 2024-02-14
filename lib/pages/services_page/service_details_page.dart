@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/add_to_cart_controller.dart';
+import 'package:home_services/controllers/add_to_cart_controller/add_to_cart_controller.dart';
 import 'package:home_services/pages/services_page/models/service_gallery_model.dart';
 import 'package:home_services/utils/colors.dart';
 import 'package:home_services/utils/styles.dart';

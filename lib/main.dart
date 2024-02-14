@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/add_to_cart_controller.dart';
+import 'package:home_services/controllers/add_to_cart_controller/add_to_cart_controller.dart';
+import 'package:home_services/controllers/auth_controller/signup/signup_controller.dart';
 import 'package:home_services/controllers/my_button_controller.dart';
-import 'package:home_services/controllers/signup_controller.dart';
 import 'package:home_services/pages/splash%20screen/splash_view.dart';
 
 Future<void> main() async {

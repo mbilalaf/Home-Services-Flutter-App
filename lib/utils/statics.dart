@@ -7,7 +7,7 @@ class Statics {
   static String getReliable = 'Get Reliable & Affordable Services instantly';
   static String signIn = 'Sign In';
   static String signUp = 'Sign Up';
-  static String email = 'Shah Faroq';
+  static String email = 'Email Address';
   static String password = 'Password';
   static String confirmPassword = 'Confirm Password';
   static String forgotPassword = 'Forgot Password';

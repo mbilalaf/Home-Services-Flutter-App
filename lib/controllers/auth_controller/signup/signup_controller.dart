@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_services/controllers/my_button_controller.dart';
 import 'package:home_services/pages/menu_page/menu_page.dart';
-import 'package:home_services/utils/colors.dart';
+import 'package:home_services/widgets/custom_snackbar.dart';
 
 class SignUpController extends GetxController {
   TextEditingController fullNameController = TextEditingController();
@@ -77,15 +77,10 @@ class SignUpController extends GetxController {
             () {
               myButtonController.isLoading.value = false;
               print("Account Created Successfully"); // Start loading
-              Get.snackbar(
-                'Account Status',
-                'Account Created Successfully',
-                snackStyle: SnackStyle.FLOATING,
-                snackPosition: SnackPosition.TOP,
-                colorText: Colors.white,
-                padding: EdgeInsets.all(10),
-                backgroundColor: MyColors.primaryColor,
-              );
+
+              CustomSnackBar.show(
+                  title: 'Account Status',
+                  message: 'Account Created Successfully');
               Get.to(const MenuPage());
             },
           );
@@ -96,27 +91,13 @@ class SignUpController extends GetxController {
         myButtonController.isLoading.value = false; // Start loading
         print("Weak Password");
         // return "Weak Password";
-        Get.snackbar(
-          'Password Status',
-          'Weak Password',
-          snackStyle: SnackStyle.FLOATING,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white,
-          padding: EdgeInsets.all(10),
-          backgroundColor: MyColors.primaryColor,
-        );
+        CustomSnackBar.show(title: 'Password Status', message: 'Weak Password');
       } else if (e.code == "email-already-in-use") {
         myButtonController.isLoading.value = false; // Start loading
         print('This is email is already registered please Login!');
-        Get.snackbar(
-          'Account Status',
-          'This is email is already registered please Login!',
-          snackStyle: SnackStyle.FLOATING,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white,
-          padding: EdgeInsets.all(10),
-          backgroundColor: MyColors.primaryColor,
-        );
+        CustomSnackBar.show(
+            title: 'Account Status',
+            message: 'This is email is already registered please Login!');
       }
       return;
     } catch (e) {

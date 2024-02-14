@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/service_page_controller.dart';
+import 'package:home_services/controllers/services_controller/service_page/service_page_controller.dart';
 import 'package:home_services/pages/services_page/services_list.dart';
 import 'package:home_services/utils/colors.dart';
 import 'package:home_services/utils/styles.dart';

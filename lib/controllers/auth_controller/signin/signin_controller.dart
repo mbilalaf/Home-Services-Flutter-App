@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_services/controllers/my_button_controller.dart';
 import 'package:home_services/pages/menu_page/menu_page.dart';
-import 'package:home_services/utils/colors.dart';
+import 'package:home_services/widgets/custom_snackbar.dart';
 
 class SignInController extends GetxController {
   TextEditingController emailController = TextEditingController();
@@ -46,26 +46,13 @@ class SignInController extends GetxController {
           .then((value) {
         myButtonController.isLoading.value = false;
         Get.offAll(const MenuPage());
-        Get.snackbar(
-          'Login Status',
-          'User Logged in Successfully',
-          snackStyle: SnackStyle.FLOATING,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white,
-          padding: EdgeInsets.all(10),
-          backgroundColor: MyColors.primaryColor,
-        );
+
+        CustomSnackBar.show(
+            title: 'Login Status', message: 'User Logged in Successfully');
       }).onError(
         (error, stackTrace) {
-          Get.snackbar(
-            'Account Status',
-            error.toString(),
-            snackStyle: SnackStyle.FLOATING,
-            snackPosition: SnackPosition.TOP,
-            colorText: Colors.white,
-            padding: EdgeInsets.all(10),
-            backgroundColor: MyColors.primaryColor,
-          );
+          CustomSnackBar.show(
+              title: 'Account Status', message: error.toString());
         },
       );
     } on FirebaseException catch (e) {
@@ -73,40 +60,20 @@ class SignInController extends GetxController {
       if (e.code == 'user-not-found') {
         myButtonController.isLoading.value = false;
         print('User Does not exist');
-        Get.snackbar(
-          'Account Status',
-          'User Does not exist',
-          snackStyle: SnackStyle.FLOATING,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white,
-          padding: EdgeInsets.all(10),
-          backgroundColor: MyColors.primaryColor,
-        );
+        CustomSnackBar.show(
+            title: 'Account Status', message: 'User Does not exist');
       } else if (e.code == 'wrong-password') {
         myButtonController.isLoading.value = false;
         print('Wrong Password');
-        Get.snackbar(
-          'Password Status',
-          'Wrong Password',
-          snackStyle: SnackStyle.FLOATING,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white,
-          padding: EdgeInsets.all(10),
-          backgroundColor: MyColors.primaryColor,
-        );
+
+        CustomSnackBar.show(
+            title: 'Password Status', message: 'Wrong Password');
       }
     } catch (e) {
       myButtonController.isLoading.value = false;
       print("Error Message: ${e.toString()}");
-      Get.snackbar(
-        'Error Message',
-        e.toString(),
-        snackStyle: SnackStyle.FLOATING,
-        snackPosition: SnackPosition.TOP,
-        colorText: Colors.white,
-        padding: EdgeInsets.all(10),
-        backgroundColor: MyColors.primaryColor,
-      );
+
+      CustomSnackBar.show(title: 'Error Message', message: e.toString());
     } finally {
       myButtonController.isLoading.value = false;
     }

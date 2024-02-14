@@ -260,10 +260,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_services/controllers/my_button_controller.dart';
-import 'package:home_services/utils/colors.dart';
+import 'package:home_services/widgets/custom_snackbar.dart';
 
 class AddToCartController extends GetxController {
   RxList<String> cartItems = <String>[].obs;
@@ -277,15 +276,8 @@ class AddToCartController extends GetxController {
     // Check if the item already exists in the cart
     if (cartItems.contains(item)) {
       // Show a snackbar or any other notification
-      Get.snackbar(
-        'Item Exists',
-        'This item is already in your cart',
-        snackStyle: SnackStyle.FLOATING,
-        snackPosition: SnackPosition.TOP,
-        colorText: Colors.white,
-        padding: EdgeInsets.all(10),
-        backgroundColor: MyColors.primaryColor,
-      );
+      CustomSnackBar.show(
+          title: 'Item Exists', message: 'This item is already in your cart');
     } else {
       // If the item is not in the cart, add it
       cartItems.add(item);
@@ -309,28 +301,13 @@ class AddToCartController extends GetxController {
         'cartList': FieldValue.arrayUnion(cartItems),
       }).whenComplete(
         () {
-          Get.snackbar(
-            'Success',
-            'Cart is Successfully added',
-            snackPosition: SnackPosition.TOP,
-            snackStyle: SnackStyle.FLOATING,
-            colorText: Colors.white,
-            padding: EdgeInsets.all(10),
-            backgroundColor: MyColors.primaryColor,
-          );
+          CustomSnackBar.show(
+              title: 'Success', message: 'Cart is Successfully added');
           myButtonController.isLoading.value = false;
         },
       ).onError(
         (error, stackTrace) {
-          Get.snackbar(
-            'Error',
-            error.toString(),
-            snackStyle: SnackStyle.FLOATING,
-            snackPosition: SnackPosition.TOP,
-            colorText: Colors.white,
-            padding: EdgeInsets.all(10),
-            backgroundColor: MyColors.primaryColor,
-          );
+          CustomSnackBar.show(title: 'Error', message: error.toString());
         },
       );
       myButtonController.isLoading.value = false;

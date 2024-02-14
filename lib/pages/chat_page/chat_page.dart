@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/admin_controller.dart';
-import 'package:home_services/controllers/messages_controller.dart';
+import 'package:home_services/controllers/admin_controller/admin_controller.dart';
+import 'package:home_services/controllers/messages_controller/messages_controller.dart';
 import 'package:home_services/models/messages_page_model.dart';
 import 'package:home_services/utils/colors.dart';
 import 'package:home_services/widgets/appbar.dart';

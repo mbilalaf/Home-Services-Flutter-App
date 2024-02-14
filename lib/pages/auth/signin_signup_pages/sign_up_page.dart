@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/signup_controller.dart';
+import 'package:home_services/controllers/auth_controller/signup/signup_controller.dart';
 import 'package:home_services/pages/auth/signin_signup_pages/sign_in_page.dart';
 import 'package:home_services/utils/colors.dart';
 import 'package:home_services/utils/imagePath.dart';

@@ -3,9 +3,8 @@ import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/add_to_cart_controller.dart';
-import 'package:home_services/controllers/cart_controller.dart';
-import 'package:home_services/controllers/cart_services_controller.dart';
+import 'package:home_services/controllers/add_to_cart_controller/add_to_cart_controller.dart';
+import 'package:home_services/controllers/add_to_cart_controller/cart_services_controller/cart_services_controller.dart';
 import 'package:home_services/pages/payment_page/payment_page.dart';
 import 'package:home_services/utils/colors.dart';
 import 'package:home_services/utils/styles.dart';
@@ -23,7 +22,6 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  CartController controller = Get.put(CartController());
   AddToCartController addToCartController = Get.put(AddToCartController());
   CartServiceDetailsController cartServiceDetailsController =
       Get.put(CartServiceDetailsController());
@@ -190,27 +188,6 @@ class _CartPageState extends State<CartPage> {
                                                             Icon(Icons.error),
                                                       ),
                                                     ),
-                                                    // Container(
-                                                    //   height: 140,
-                                                    //   width: 110,
-                                                    //   decoration:
-                                                    //       BoxDecoration(
-                                                    //     color: Colors
-                                                    //         .grey.shade50,
-                                                    //     image: DecorationImage(
-                                                    //         image: NetworkImage(
-                                                    //             cartServiceDetailsController
-                                                    //                 .serviceDetailsList[
-                                                    //                     index]
-                                                    //                 .img),
-                                                    //         fit: BoxFit
-                                                    //             .fill),
-                                                    //     borderRadius:
-                                                    //         BorderRadius
-                                                    //             .circular(
-                                                    //                 24),
-                                                    //   ),
-                                                    // ),
                                                     const SizedBox(width: 16),
                                                     Row(
                                                       children: [

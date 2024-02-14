@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:home_services/controllers/admin_controller.dart';
+import 'package:home_services/controllers/admin_controller/admin_controller.dart';
 import 'package:home_services/models/messages_page_model.dart';
 
 class MessagesController extends GetxController {
